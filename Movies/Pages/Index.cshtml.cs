@@ -12,7 +12,11 @@ namespace Movies.Pages
 
         public void OnGet()
         {
-
+            Movies = MovieDatabase,All;
+            if(SearchTerms != null)
+            {
+                Movies = Movie.Where(movie.Title != null && movie.Title.Contains(SearchTerms, StringComparison.CurrentCultureIgnoreCase));
+            }
         }
     }
 }
